@@ -79,27 +79,14 @@ services:
     environment:
       - "SPARK_MASTER=spark://spark-master:7077"
 
-  # spark-submit:
-  #   build:
-  #     context: .
-  #     dockerfile: Dockerfile
-  #   container_name: spark-submit
-  #   depends_on:
-  #     - spark-master
-  #     - spark-worker
-  #   volumes:
-  #     - ./app:/app 
-  #   environment:
-  #     - SPARK_MASTER=spark://spark-master:7077
-
   spark-submit:
-    image: bde2020/spark-base:3.3.0-hadoop3.3  # Utilisez une image Spark de base pour spark-submit
+    image: bde2020/spark-base:3.3.0-hadoop3.3 
     container_name: spark-submit
     depends_on:
       - spark-master
       - spark-worker-1
     volumes:
-      - ./app:/app  # Monte le répertoire contenant votre script
+      - ./app:/app 
     environment:
       - SPARK_MASTER=spark://spark-master:7077
     command: >

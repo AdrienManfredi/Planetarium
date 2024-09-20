@@ -12,15 +12,15 @@ schema = StructType([
     StructField("nom", StringType(), True),
     StructField("decouvreur", StringType(), True),
     StructField("date_de_decouverte", StringType(), True),
-    StructField("masse", FloatType(), True),
-    StructField("rayon", FloatType(), True),
-    StructField("distance", FloatType(), True),
+    StructField("masse", StringType(), True),  
+    StructField("rayon", StringType(), True),  
+    StructField("distance", StringType(), True),  
     StructField("type", StringType(), True),
     StructField("statut", StringType(), True),
     StructField("atmosphere", StringType(), True),
-    StructField("temperature_moyenne", FloatType(), True),
-    StructField("periode_orbitale", FloatType(), True),
-    StructField("nombre_de_satellites", FloatType(), True),
+    StructField("temperature_moyenne", StringType(), True),  
+    StructField("periode_orbitale", StringType(), True),  
+    StructField("nombre_de_satellites", StringType(), True), 
     StructField("presence_deau", StringType(), True)
 ])
 
@@ -36,7 +36,6 @@ df_parsed = df.selectExpr("CAST(value AS STRING)") \
     .select(from_json(col("value"), schema).alias("data")) \
     .select("data.*")
 
-# Afficher toutes les données reçues dans la console
 df_parsed.writeStream \
     .outputMode("append") \
     .format("console") \
