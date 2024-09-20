@@ -18,6 +18,8 @@ schema = StructType([
     StructField("water_presence", StringType(), True)
 ])
 
+spark.sparkContext.setLogLevel("WARN")
+
 df = spark.readStream \
     .format("kafka") \
     .option("kafka.bootstrap.servers", "kafka:9092") \
@@ -28,9 +30,13 @@ df_parsed = df.selectExpr("CAST(value AS STRING)") \
     .select(from_json(col("value"), schema).alias("data")) \
     .select("data.*")
 
-df_parsed.createOrReplaceTempView("planet_discoveries")
+df_parsed.writeStream \
+    .outputMode("append") \
+    .format("console") \
+    .start()
 
-mass_avg = spark.sql("SELECT AVG(masse) as avg_masse FROM planet_discoveries")
+# Calculer la moyenne des masses des planètes et l'afficher dans la console
+mass_avg = df_parsed.selectExpr("AVG(masse) as avg_masse")
 
 mass_avg.writeStream \
     .outputMode("complete") \
