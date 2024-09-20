@@ -64,73 +64,50 @@ def home():
         </style>
     </head>
     <body>
-    <div class="container">
-        <h1>Planet Discovery Form</h1>
-        <form id="planetForm">
-            <div class="form-group">
-                <label for="id">ID</label>
-                <input type="text" id="id" name="id" required>
-            </div>
-            <div class="form-group">
-                <label for="nom">Nom</label>
-                <input type="text" id="nom" name="nom" required>
-            </div>
-            <div class="form-group">
-                <label for="decouvreur">Découvreur</label>
-                <input type="text" id="decouvreur" name="decouvreur" required>
-            </div>
-            <div class="form-group">
-                <label for="date_de_decouverte">Date de Découverte</label>
-                <input type="date" id="date_de_decouverte" name="date_de_decouverte" required>
-            </div>
-            <div class="form-group">
-                <label for="masse">Masse</label>
-                <input type="number" step="0.01" id="masse" name="masse" required>
-            </div>
-            <div class="form-group">
-                <label for="rayon">Rayon</label>
-                <input type="number" step="0.01" id="rayon" name="rayon" required>
-            </div>
-            <div class="form-group">
-                <label for="distance">Distance (en années-lumière)</label>
-                <input type="number" step="0.01" id="distance" name="distance" required>
-            </div>
-            <div class="form-group">
-                <label for="type">Type</label>
-                <input type="text" id="type" name="type" required>
-            </div>
-            <div class="form-group">
-                <label for="statut">Statut</label>
-                <input type="text" id="statut" name="statut" required>
-            </div>
-            <div class="form-group">
-                <label for="atmosphere">Atmosphère</label>
-                <input type="text" id="atmosphere" name="atmosphere" required>
-            </div>
-            <div class="form-group">
-                <label for="temperature_moyenne">Température Moyenne (°C)</label>
-                <input type="number" step="0.1" id="temperature_moyenne" name="temperature_moyenne" required>
-            </div>
-            <div class="form-group">
-                <label for="periode_orbitale">Période Orbitale (jours)</label>
-                <input type="number" step="0.1" id="periode_orbitale" name="periode_orbitale" required>
-            </div>
-            <div class="form-group">
-                <label for="nombre_de_satellites">Nombre de Satellites</label>
-                <input type="number" id="nombre_de_satellites" name="nombre_de_satellites" required>
-            </div>
-            <div class="form-group">
-                <label for="presence_deau">Présence d’Eau</label>
-                <select id="presence_deau" name="presence_deau" required>
-                    <option value="oui">Oui</option>
-                    <option value="non">Non</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <button type="submit">Envoyer</button>
-            </div>
-        </form>
-    </div>
+   <div class="container">
+    <h1>Planet Information Form</h1>
+    <form id="planetForm">
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+            <label for="num_moons">Number of Moons</label>
+            <input type="number" id="num_moons" name="num_moons" required>
+        </div>
+        <div class="form-group">
+            <label for="minerals">Minerals</label>
+            <input type="text" id="minerals" name="minerals" required>
+        </div>
+        <div class="form-group">
+            <label for="gravity">Gravity (m/s²)</label>
+            <input type="number" step="0.01" id="gravity" name="gravity" required>
+        </div>
+        <div class="form-group">
+            <label for="sunlight_hours">Sunlight Hours</label>
+            <input type="number" step="0.1" id="sunlight_hours" name="sunlight_hours" required>
+        </div>
+        <div class="form-group">
+            <label for="temperature">Temperature (°C)</label>
+            <input type="number" step="0.1" id="temperature" name="temperature" required>
+        </div>
+        <div class="form-group">
+            <label for="rotation_time">Rotation Time (hours)</label>
+            <input type="number" step="0.1" id="rotation_time" name="rotation_time" required>
+        </div>
+        <div class="form-group">
+            <label for="water_presence">Water Presence</label>
+            <select id="water_presence" name="water_presence" required>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+</div>
+
     <script>
         document.getElementById('planetForm').addEventListener('submit', function(e) {
         e.preventDefault();  // Empêche la soumission classique du formulaire
