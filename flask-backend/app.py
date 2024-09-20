@@ -23,7 +23,7 @@ def add_discovery():
     if not data:
         return jsonify({"error": "No data provided"}), 400
 
-    required_fields = ["id", "nom", "decouvreur", "date_de_decouverte", "masse", "rayon", "distance", "type", "statut", "atmosphere", "temperature_moyenne", "periode_orbitale", "nombre_de_satellites", "presence_deau"]
+    required_fields = ["id", "nom", "decouvreur", "date_decouverte", "masse", "rayon", "distance", "type", "statut", "atmosphere", "temperature_moyenne", "periode_orbitale", "nombre_satellites", "presence_eau"]
     
     if not all(field in data for field in required_fields):
         return jsonify({"error": "Missing data fields"}), 400
