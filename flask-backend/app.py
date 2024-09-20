@@ -113,30 +113,27 @@ def home():
         e.preventDefault();  // Empêche la soumission classique du formulaire
         
         const formData = {
-            id: document.getElementById('id').value,
-            nom: document.getElementById('nom').value,
-            decouvreur: document.getElementById('decouvreur').value,
-            date_de_decouverte: document.getElementById('date_de_decouverte').value,
-            masse: document.getElementById('masse').value,
-            rayon: document.getElementById('rayon').value,
-            distance: document.getElementById('distance').value,
-            type: document.getElementById('type').value,
-            statut: document.getElementById('statut').value,
-            atmosphere: document.getElementById('atmosphere').value,
-            temperature_moyenne: document.getElementById('temperature_moyenne').value,
-            periode_orbitale: document.getElementById('periode_orbitale').value,
-            nombre_de_satellites: document.getElementById('nombre_de_satellites').value,
-            presence_deau: document.getElementById('presence_deau').value
-        };
+    name: document.getElementById('name').value,
+    num_moons: document.getElementById('num_moons').value,
+    minerals: document.getElementById('minerals').value,
+    gravity: document.getElementById('gravity').value,
+    sunlight_hours: document.getElementById('sunlight_hours').value,
+    temperature: document.getElementById('temperature').value,
+    rotation_time: document.getElementById('rotation_time').value,
+    water_presence: document.getElementById('water_presence').value
+};
 
-        fetch('http://localhost:5000/discovery', {
+
+        fetch('https://opulent-trout-9j7w44g96572vqq-5000.app.github.dev/discovery', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(formData)
+            
         })
         .then(response => {
+        console.log(response)
             if (!response.ok) {
                 throw new Error(`HTTP error! Status: ${response.status}`);
             }
@@ -162,7 +159,8 @@ def add_discovery():
     if not data:
         return jsonify({"error": "No data provided"}), 400
 
-    required_fields = ["id", "nom", "decouvreur", "date_de_decouverte", "masse", "rayon", "distance", "type", "statut", "atmosphere", "temperature_moyenne", "periode_orbitale", "nombre_de_satellites", "presence_deau"]
+    required_fields = ["name", "num_moons", "minerals", "gravity", "sunlight_hours", "temperature", "rotation_time", "water_presence"]
+
     
     if not all(field in data for field in required_fields):
         return jsonify({"error": "Missing data fields"}), 400
