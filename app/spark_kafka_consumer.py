@@ -8,20 +8,14 @@ spark = SparkSession.builder \
     .getOrCreate()
 
 schema = StructType([
-    StructField("id", StringType(), True),
-    StructField("nom", StringType(), True),
-    StructField("decouvreur", StringType(), True),
-    StructField("date_de_decouverte", StringType(), True),
-    StructField("masse", StringType(), True),  
-    StructField("rayon", StringType(), True),  
-    StructField("distance", StringType(), True),  
-    StructField("type", StringType(), True),
-    StructField("statut", StringType(), True),
-    StructField("atmosphere", StringType(), True),
-    StructField("temperature_moyenne", StringType(), True),  
-    StructField("periode_orbitale", StringType(), True),  
-    StructField("nombre_de_satellites", StringType(), True), 
-    StructField("presence_deau", StringType(), True)
+    StructField("name", StringType(), True),
+    StructField("num_moons", FloatType(), True),
+    StructField("minerals", StringType(), True),
+    StructField("gravity", FloatType(), True),
+    StructField("sunlight_hours", FloatType(), True),
+    StructField("temperature", FloatType(), True),
+    StructField("rotation_time", FloatType(), True),
+    StructField("water_presence", StringType(), True)
 ])
 
 spark.sparkContext.setLogLevel("WARN")
