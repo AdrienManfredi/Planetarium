@@ -1,0 +1,6 @@
+#particles-js {
+    background: black;
+    height: 100%;
+    position: fixed;
+    z-index: 0;
+  }
