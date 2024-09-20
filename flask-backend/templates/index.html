@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <title>Planetarium</title>
+</head>
+
+<body>
+  <nav class="navbar bg-body-tertiary sticky-top">
+    <div class="container-fluid justify-content-center">
+      <a class="navbar-brand" href="#">
+        <i class="fa-brands fa-space-awesome fs-3"></i>
+        PLANETARIUM
+      </a>
+    </div>
+  </nav>
+  <div class="w-100" id="particles-js"></div>
+
+  <div class="container mt-5">
+    <div class="row">
+      <div style="z-index: 2;" class="col-6">
+        <div class="accordion" id="accordionExample">
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingOne">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                Accordion Item #1
+              </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
+              data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                <strong>This is the first item's accordion body.</strong> It
+                is shown by default, until the collapse plugin adds the
+                appropriate classes that we use to style each element. These
+                classes control the overall appearance, as well as the showing
+                and hiding via CSS transitions. You can modify any of this
+                with custom CSS or overriding our default variables. It's also
+                worth noting that just about any HTML can go within the
+                <code>.accordion-body</code>, though the transition does limit
+                overflow.
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingTwo">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                Accordion Item #2
+              </button>
+            </h2>
+            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+              data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                <strong>This is the second item's accordion body.</strong> It
+                is hidden by default, until the collapse plugin adds the
+                appropriate classes that we use to style each element. These
+                classes control the overall appearance, as well as the showing
+                and hiding via CSS transitions. You can modify any of this
+                with custom CSS or overriding our default variables. It's also
+                worth noting that just about any HTML can go within the
+                <code>.accordion-body</code>, though the transition does limit
+                overflow.
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingThree">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                Accordion Item #3
+              </button>
+            </h2>
+            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+              data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                <strong>This is the third item's accordion body.</strong> It
+                is hidden by default, until the collapse plugin adds the
+                appropriate classes that we use to style each element. These
+                classes control the overall appearance, as well as the showing
+                and hiding via CSS transitions. You can modify any of this
+                with custom CSS or overriding our default variables. It's also
+                worth noting that just about any HTML can go within the
+                <code>.accordion-body</code>, though the transition does limit
+                overflow.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="z-index: 2;" class="col-6">
+        <div class="accordion" id="accordionExample">
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingOne">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                Accordion Item #1
+              </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
+              data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                <strong>This is the first item's accordion body.</strong> It
+                is shown by default, until the collapse plugin adds the
+                appropriate classes that we use to style each element. These
+                classes control the overall appearance, as well as the showing
+                and hiding via CSS transitions. You can modify any of this
+                with custom CSS or overriding our default variables. It's also
+                worth noting that just about any HTML can go within the
+                <code>.accordion-body</code>, though the transition does limit
+                overflow.
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingTwo">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                Accordion Item #2
+              </button>
+            </h2>
+            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+              data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                <strong>This is the second item's accordion body.</strong> It
+                is hidden by default, until the collapse plugin adds the
+                appropriate classes that we use to style each element. These
+                classes control the overall appearance, as well as the showing
+                and hiding via CSS transitions. You can modify any of this
+                with custom CSS or overriding our default variables. It's also
+                worth noting that just about any HTML can go within the
+                <code>.accordion-body</code>, though the transition does limit
+                overflow.
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingThree">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                Accordion Item #3
+              </button>
+            </h2>
+            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+              data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                <strong>This is the third item's accordion body.</strong> It
+                is hidden by default, until the collapse plugin adds the
+                appropriate classes that we use to style each element. These
+                classes control the overall appearance, as well as the showing
+                and hiding via CSS transitions. You can modify any of this
+                with custom CSS or overriding our default variables. It's also
+                worth noting that just about any HTML can go within the
+                <code>.accordion-body</code>, though the transition does limit
+                overflow.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container mt-5 text-light">
+    <div class="row justify-content-center">
+      <h1 style="z-index: 1" class="text-center my-5">Ajouter une planète</h1>
+
+      <form style="z-index: 1" id="planetForm" class="col-5">
+        <div class="form-group mb-3">
+          <label for="id">ID</label>
+          <input type="text" class="form-control" id="id" name="id" required />
+        </div>
+        <div class="form-group mb-3">
+          <label for="nom">Nom</label>
+          <input type="text" class="form-control" id="nom" name="nom" required />
+        </div>
+        <div class="form-group mb-3">
+          <label for="decouvreur">Découvreur</label>
+          <input type="text" class="form-control" id="decouvreur" name="decouvreur" required />
+        </div>
+        <div class="form-group mb-3">
+          <label for="date_decouverte">Date de Découverte</label>
+          <input type="date" class="form-control" id="date_decouverte" name="date_decouverte" required />
+        </div>
+        <div class="form-group mb-3">
+          <label for="masse">Masse</label>
+          <input type="number" class="form-control" id="masse" name="masse" required />
+        </div>
+        <div class="form-group mb-3">
+          <label for="rayon">Rayon</label>
+          <input type="number" class="form-control" id="rayon" name="rayon" required />
+        </div>
+        <div class="form-group mb-3">
+          <label for="distance">Distance</label>
+          <input type="number" class="form-control" id="distance" name="distance" required />
+        </div>
+        <div class="form-group mb-3">
+          <label for="type">Type</label>
+          <input type="text" class="form-control" id="type" name="type" required />
+        </div>
+        <div class="form-group mb-3">
+          <label for="statut">Statut</label>
+          <select class="form-control" id="statut" name="statut" required>
+            <option value="confirmée">Confirmée</option>
+            <option value="non confirmée">Non confirmée</option>
+            <option value="potentielle">Potentielle</option>
+          </select>
+        </div>
+        <div class="form-group mb-3">
+          <label for="atmosphere">Atmosphère</label>
+          <input type="text" class="form-control" id="atmosphere" name="atmosphere" required />
+        </div>
+        <div class="form-group mb-3">
+          <label for="temperature">Température Moyenne</label>
+          <input type="number" class="form-control" id="temperature_moyenne" name="temperature_moyenne" required />
+        </div>
+        <div class="form-group mb-3">
+          <label for="periode_orbitale">Période Orbitale</label>
+          <input type="number" class="form-control" id="periode_orbitale" name="periode_orbitale" required />
+        </div>
+        <div class="form-group mb-3">
+          <label for="nombre_satellites">Nombre de Satellites</label>
+          <input type="number" class="form-control" id="nombre_satellites" name="nombre_satellites" required />
+        </div>
+        <div class="form-group mb-3">
+          <label for="presence_eau">Présence d’Eau</label>
+          <select class="form-control" id="presence_eau" name="presence_eau" required>
+            <option value="oui">Oui</option>
+            <option value="non">Non</option>
+          </select>
+        </div>
+        <div class="text-center my-3">
+          <button type="submit" class="btn btn-primary">Ajouter</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+<script src="{{ url_for('static', filename='particlesjs/particlesjs.js') }}"></script>
+<script src="{{ url_for('static', filename='particlesjs/app.js') }}"></script>
+
+<script>
+
+  document.getElementById('planetForm').addEventListener('submit', function (e) {
+    e.preventDefault();  // Empêche la soumission classique du formulaire
+
+    const formData = {
+      id: document.getElementById('id').value,
+      nom: document.getElementById('nom').value,
+      decouvreur: document.getElementById('decouvreur').value,
+      date_de_decouverte: document.getElementById('date_decouverte').value,
+      masse: document.getElementById('masse').value,
+      rayon: document.getElementById('rayon').value,
+      distance: document.getElementById('distance').value,
+      type: document.getElementById('type').value,
+      statut: document.getElementById('statut').value,
+      atmosphere: document.getElementById('atmosphere').value,
+      temperature_moyenne: document.getElementById('temperature_moyenne').value,
+      periode_orbitale: document.getElementById('periode_orbitale').value,
+      nombre_de_satellites: document.getElementById('nombre_satellites').value,
+      presence_deau: document.getElementById('presence_eau').value
+    };
+
+    fetch('https://orange-robot-x4qjg4g5x772pqrw-5000.app.github.dev/discovery', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(formData)
+    })
+      .then(response => {
+        console.log(response)
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then(data => {
+        alert('Discovery sent successfully!');
+        console.log(data);
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
+  });
+
+
+</script>
+
+</html>
