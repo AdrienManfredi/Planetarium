@@ -177,68 +177,39 @@
       <h1 style="z-index: 1" class="text-center my-5">Ajouter une planète</h1>
 
       <form style="z-index: 1" id="planetForm" class="col-5">
-        <div class="form-group mb-3">
-          <label for="id">ID</label>
-          <input type="text" class="form-control" id="id" name="id" required />
-        </div>
+
         <div class="form-group mb-3">
           <label for="nom">Nom</label>
-          <input type="text" class="form-control" id="nom" name="nom" required />
+          <input type="text" class="form-control" id="name" name="name" required />
         </div>
         <div class="form-group mb-3">
-          <label for="decouvreur">Découvreur</label>
-          <input type="text" class="form-control" id="decouvreur" name="decouvreur" required />
+          <label for="decouvreur">num_moons</label>
+          <input type="number" class="form-control" id="num_moons" name="num_moons" required />
         </div>
         <div class="form-group mb-3">
-          <label for="date_decouverte">Date de Découverte</label>
-          <input type="date" class="form-control" id="date_decouverte" name="date_decouverte" required />
+          <label for="minerals">Minerals</label>
+          <input type="text" class="form-control" id="minerals" name="minerals" required />
         </div>
         <div class="form-group mb-3">
-          <label for="masse">Masse</label>
-          <input type="number" class="form-control" id="masse" name="masse" required />
+          <label for="gravity">gravity</label>
+          <input type="number" class="form-control" id="gravity" name="gravity" required />
         </div>
         <div class="form-group mb-3">
-          <label for="rayon">Rayon</label>
-          <input type="number" class="form-control" id="rayon" name="rayon" required />
+          <label for="rayon">sunlight_hours</label>
+          <input type="time" class="form-control" id="sunlight_hours" name="sunlight_hours" required />
         </div>
         <div class="form-group mb-3">
-          <label for="distance">Distance</label>
-          <input type="number" class="form-control" id="distance" name="distance" required />
+          <label for="temperature">temperature</label>
+          <input type="number" class="form-control" id="temperature" name="temperature" required />
         </div>
         <div class="form-group mb-3">
-          <label for="type">Type</label>
-          <input type="text" class="form-control" id="type" name="type" required />
+          <label for="rotation_time">rotation_time</label>
+          <input type="time" class="form-control" id="rotation_time" name="rotation_time" required />
         </div>
+
         <div class="form-group mb-3">
-          <label for="statut">Statut</label>
-          <select class="form-control" id="statut" name="statut" required>
-            <option value="confirmée">Confirmée</option>
-            <option value="non confirmée">Non confirmée</option>
-            <option value="potentielle">Potentielle</option>
-          </select>
-        </div>
-        <div class="form-group mb-3">
-          <label for="atmosphere">Atmosphère</label>
-          <input type="text" class="form-control" id="atmosphere" name="atmosphere" required />
-        </div>
-        <div class="form-group mb-3">
-          <label for="temperature">Température Moyenne</label>
-          <input type="number" class="form-control" id="temperature_moyenne" name="temperature_moyenne" required />
-        </div>
-        <div class="form-group mb-3">
-          <label for="periode_orbitale">Période Orbitale</label>
-          <input type="number" class="form-control" id="periode_orbitale" name="periode_orbitale" required />
-        </div>
-        <div class="form-group mb-3">
-          <label for="nombre_satellites">Nombre de Satellites</label>
-          <input type="number" class="form-control" id="nombre_satellites" name="nombre_satellites" required />
-        </div>
-        <div class="form-group mb-3">
-          <label for="presence_eau">Présence d’Eau</label>
-          <select class="form-control" id="presence_eau" name="presence_eau" required>
-            <option value="oui">Oui</option>
-            <option value="non">Non</option>
-          </select>
+          <label for="water_presence">water_presence</label>
+          <input type="text" class="form-control" id="water_presence" name="water_presence" required />
         </div>
         <div class="text-center my-3">
           <button type="submit" class="btn btn-primary">Ajouter</button>
@@ -256,20 +227,14 @@
     e.preventDefault();  // Empêche la soumission classique du formulaire
 
     const formData = {
-      id: document.getElementById('id').value,
-      nom: document.getElementById('nom').value,
-      decouvreur: document.getElementById('decouvreur').value,
-      date_de_decouverte: document.getElementById('date_decouverte').value,
-      masse: document.getElementById('masse').value,
-      rayon: document.getElementById('rayon').value,
-      distance: document.getElementById('distance').value,
-      type: document.getElementById('type').value,
-      statut: document.getElementById('statut').value,
-      atmosphere: document.getElementById('atmosphere').value,
-      temperature_moyenne: document.getElementById('temperature_moyenne').value,
-      periode_orbitale: document.getElementById('periode_orbitale').value,
-      nombre_de_satellites: document.getElementById('nombre_satellites').value,
-      presence_deau: document.getElementById('presence_eau').value
+      name: document.getElementById('name').value,
+      num_moons: document.getElementById('num_moons').value,
+      minerals: document.getElementById('minerals').value,
+      gravity: document.getElementById('gravity').value,
+      sunlight_hours: document.getElementById('sunlight_hours').value,
+      temperature: document.getElementById('temperature').value,
+      rotation_time: document.getElementById('rotation_time').value,
+      water_presence: document.getElementById('water_presence').value,
     };
 
     fetch('https://orange-robot-x4qjg4g5x772pqrw-5000.app.github.dev/discovery', {
@@ -280,7 +245,7 @@
       body: JSON.stringify(formData)
     })
       .then(response => {
-        console.log(response)
+        console.log(response.data)
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
         }
